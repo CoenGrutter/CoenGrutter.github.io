@@ -33,7 +33,7 @@ jobs:
       - name: Upload production-ready files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  
+          path: ./out
 
   deploy:
     needs: build
