@@ -20,21 +20,18 @@ const withPWA = WithPWA({
 const config = withPWA({
   reactStrictMode: true,
 
-  // ✅ Required for GitHub Pages
+  //  Required for GitHub Pages
   output: "export",
 
-  // ✅ Disable Next.js image optimization (not supported on GitHub Pages)
+  //  Disable Next.js image optimization (not supported on GitHub Pages)
   images: {
     unoptimized: true,
   },
 
-  // ✅ Use repo name as asset prefix when deployed on GH Pages
+  //  Use repo name as asset prefix when deployed on GH Pages
   assetPrefix: isProd ? "/portfolio/" : "",
 
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+
 });
 
 export default config;
