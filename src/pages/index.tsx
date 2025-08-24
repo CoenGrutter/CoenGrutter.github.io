@@ -185,7 +185,7 @@ export default function Home() {
             </span>
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[30px]">
             {/* TODO: edit je info*/}
-            I find it difficult to write something about myself. Maybe I'll do it later.  lol.
+            I find it difficult to write something about myself. Maybe I&apos;ll do it later.  lol.
           </h2>
           </div>
         </section>
