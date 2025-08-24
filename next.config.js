@@ -28,8 +28,6 @@ const config = withPWA({
     unoptimized: true,
   },
 
-basePath: isProd ? "/portfolio" : "",
-assetPrefix: isProd ? "/portfolio/" : "",
 
 
 });
