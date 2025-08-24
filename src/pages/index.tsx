@@ -244,7 +244,7 @@ export default function Home() {
 
           <span>
             <label> <Link href="https://sue.nl/" target="_blank" className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</Link> </label>
-            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at Sue, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven agents that can automatically manage cloud infrastructure.</p>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at Sue, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
           </span>
           <br></br>
           </div>
