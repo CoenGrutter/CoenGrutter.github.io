@@ -28,8 +28,8 @@ const config = withPWA({
     unoptimized: true,
   },
 
-  //  Use repo name as asset prefix when deployed on GH Pages
-  assetPrefix: isProd ? "/portfolio/" : "",
+basePath: isProd ? "/portfolio" : "",
+assetPrefix: isProd ? "/portfolio/" : "",
 
 
 });
