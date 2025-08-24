@@ -5,6 +5,8 @@
 await import("./src/env.js");
 import WithPWA from "next-pwa";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const withPWA = WithPWA({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
@@ -13,18 +15,22 @@ const withPWA = WithPWA({
   sw: "service-worker.js",
 });
 
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 // @ts-ignore
 const config = withPWA({
   reactStrictMode: true,
 
-  /**
-   * If you are using `appDir` then you must comment the below `i18n` config out.
-   *
-   * @see https://github.com/vercel/next.js/issues/41980
-   */
+  // ✅ Required for GitHub Pages
+  output: "export",
+
+  // ✅ Disable Next.js image optimization (not supported on GitHub Pages)
+  images: {
+    unoptimized: true,
+  },
+
+  // ✅ Use repo name as asset prefix when deployed on GH Pages
+  assetPrefix: isProd ? "/portfolio/" : "",
+
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
