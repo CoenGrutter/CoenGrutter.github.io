@@ -1,0 +1,13 @@
+{
+    "theme_color": "#7B82FE",
+    "background_color": "#0A0A13",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Coen Grutter",
+    "short_name": "Coen",
+    "description": "Student software developer specializing in web development and cloud. Currently in my final year of college",
+    
+    "splash_pages": null
+}
