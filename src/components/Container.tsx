@@ -90,6 +90,7 @@ export default function Container(props: ContainerProps) {
     type: "website",
     ...customMeta,
   };
+  //todo: see what happens when you put the assets / logo.webpimage bakc. see wehre it shows up. 
 
   // handle scroll
   useEffect(() => {

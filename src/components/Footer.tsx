@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { MailIcon } from "lucide-react";
 
 export default function Footer() {
+
+  //TODO: completely rewrite the footer to be professional. have it include contact info like email and phone number. it must also match the website styling.
   // get the current time in UTC+1 time zone
   const [time, setTime] = useState<string>("");
 
