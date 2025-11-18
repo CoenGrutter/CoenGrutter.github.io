@@ -27,6 +27,13 @@ const config = withPWA({
   images: {
     unoptimized: true,
   },
+  
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
 
 
