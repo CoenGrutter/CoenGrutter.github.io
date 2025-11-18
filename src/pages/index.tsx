@@ -378,16 +378,13 @@ function RatingProgression() {
 
         if (!response.ok) throw new Error("Failed to fetch rating data");
 
-        //@ts-expect-error
+    
         const data = await response.json();
-        // @ts-ignore
+
         const resultsArray = JSON.parse(data.results);
-        //@ts-expect-error
         const ratingsObj = resultsArray[0];
-        //@ts-expect-error
         setRaw(ratingsObj);
       } catch (err) {
-        //@ts-expect-error
         setError(err instanceof Error ? err.message : "Unknown error");
       } finally {
         setLoading(false);
@@ -401,12 +398,12 @@ function RatingProgression() {
   if (error) return <div className="text-red-500">Error: {error}</div>;
   if (!raw) return null;
 
-  //@ts-expect-error
+
   const series: { date: Date; rating: number }[] = Object.keys(raw)
     .map((k) => {
       const [year, half] = k.split("_");
       const month = half === "1" ? 0 : 6; // Jan = 0, Jul = 6
-      //@ts-expect-error
+
       return { date: new Date(Number(year), month, 1), rating: Number(raw![k]) };
     })
     .sort((a, b) => a.date.getTime() - b.date.getTime());
