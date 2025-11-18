@@ -356,7 +356,7 @@ function Gradient() {
 }
 
 function RatingProgression() {
-  var [raw, setRaw] = useState<Record<string, number> | null>(null);
+  const [raw, setRaw] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tip, setTip] = useState<null | { x: number; y: number; label: string }>(null);
@@ -400,7 +400,7 @@ function RatingProgression() {
     .map((k) => {
       const [year, half] = k.split("_");
       const month = half === "1" ? 0 : 6; // Jan = 0, Jul = 6
-      return { date: new Date(Number(year), month, 1), rating: Number(raw[k]) };
+      return { date: new Date(Number(year), month, 1), rating: Number(raw![k]) };
     })
     .sort((a, b) => a.date.getTime() - b.date.getTime());
 
