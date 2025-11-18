@@ -283,11 +283,10 @@ export default function Home() {
             className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-16 text-center xl:py-24"
           >
             <h2 className="text-4xl font-medium tracking-tighter xl:text-6xl">
-              Let&apos;s work{" "}
-              <span className="text-gradient clash-grotesk">together.</span>
+              For contact:
             </h2>
             <Link href="mailto:gruttercoen@gmail.com" passHref>
-              <Button className="mt-6">Get in touch</Button>
+              <Button className="mt-6">gruttercoen@gmail.com</Button>
             </Link>
           </div>
         </section>
@@ -357,7 +356,7 @@ function Gradient() {
 }
 
 function RatingProgression() {
-  const [raw, setRaw] = useState<Record<string, number> | null>(null);
+  var [raw, setRaw] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tip, setTip] = useState<null | { x: number; y: number; label: string }>(null);
@@ -378,9 +377,9 @@ function RatingProgression() {
 
         if (!response.ok) throw new Error("Failed to fetch rating data");
 
-        const data = await response.json();
-        const resultsArray = JSON.parse(data.results);
-        const ratingsObj = resultsArray[0];
+        var data = await response.json();
+        var resultsArray = JSON.parse(data.results);
+        var ratingsObj = resultsArray[0];
         setRaw(ratingsObj);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unknown error");
