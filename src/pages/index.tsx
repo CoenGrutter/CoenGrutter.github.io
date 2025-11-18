@@ -356,7 +356,7 @@ function Gradient() {
 }
 
 function RatingProgression() {
-  //@ts-expect-error
+  
   const [raw, setRaw] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
