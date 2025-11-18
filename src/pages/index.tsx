@@ -179,7 +179,7 @@ export default function Home() {
             {/* TODO: edit je info*/}
             I&apos;m a problem solver. And a problem finder, I just realized. It&apos;s what makes me stand out. <br></br>
             I think critically about processes that others deem optimized, and question why we do things the way we do. <br></br>
-            This mindset is what got me into software development; The ability to to build anything I want, with the only limitation, my own imagination. <br></br>
+            This mindset is what got me into software development; The ability to build anything I want, with the only limitation, my own imagination. <br></br>
             <br></br>
             <br></br>
             In my free time, I play table tennis! Check out my rating progression over the years: <br></br>
