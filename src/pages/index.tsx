@@ -5,28 +5,20 @@ import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
 import {
   ChevronRight,
-  Code2,
-  Frame,
-  SearchCheck,
-  Eye,
-  MonitorSmartphone,
+
 } from "lucide-react";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
-import Spline from "@splinetool/react-spline";
+
 import Link from "next/link";
 import { cn, scrollTo } from "@/lib/utils";
-import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+
   type CarouselApi,
 } from "@/components/ui/carousel";
 import VanillaTilt from "vanilla-tilt";
-import { motion } from "framer-motion";
+
 
 
 
@@ -420,7 +412,6 @@ function RatingProgression() {
   if (!series || series.length === 0) return null;
 
   const maxRating = Math.max(...series.map((s) => s.rating));
-  const minRating = 0;
   const maxY = Math.ceil(maxRating / 500) * 500;
 
   const xFor = (index: number) => {

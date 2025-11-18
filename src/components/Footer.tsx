@@ -34,6 +34,15 @@ export default function Footer() {
             <p className="text-sm font-semibold">{time} UTC+1</p>
           </span>
         </span>
+
+        <span className="flex flex-row items-center space-x-4">
+          <hr className="hidden h-6 border-l border-muted md:flex" />
+          <span className="flex hidden flex-row items-center space-x-2 md:flex">
+            <a className="text-sm underline text-muted-foreground" href="/coen-grutter-resume.pdf">My Resume</a>
+          </span>
+        </span>
+
+        
       </div>
       <div className="h-1 bg-[radial-gradient(closest-side,#8486ff,#42357d,#5d83ff,transparent)] opacity-50" />
     </footer>
