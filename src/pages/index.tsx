@@ -125,7 +125,7 @@ export default function Home() {
                 data-scroll-direction="horizontal"
               >
                 <span className="text-6xl tracking-tighter text-foreground 2xl:text-8xl">
-                  Hello, I&apos;m
+                  Hi, I&apos;m
                   <br />
                 </span>
                 <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
@@ -183,10 +183,20 @@ export default function Home() {
             <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
               About Me
             </span>
-            <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[30px]">
+            <h2 className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
             {/* TODO: edit je info*/}
-            I find it difficult to write something about myself. Maybe I&apos;ll do it later.  lol.
+            I&apos;m a problem solver. And a problem finder, I just realized. It&apos;s what makes me stand out. <br></br>
+            I think critically about processes that others deem optimized, and question why we do things the way we do. <br></br>
+            This mindset is what got me into software development; The ability to to build anything I want, with the only limitation, my own imagination. <br></br>
+            <br></br>
+            <br></br>
+            In my free time, I play table tennis! Check out my rating progression over the years: <br></br>
+            
           </h2>
+          {/* rating chart */}
+          <div className="max-w-3xl px-4">
+            <RatingProgression />
+          </div>
           </div>
         </section>
 
@@ -351,5 +361,172 @@ function Gradient() {
         </svg>
       </div>
     </>
+  );
+}
+
+function RatingProgression() {
+  const [raw, setRaw] = useState<Record<string, number> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [tip, setTip] = useState<null | { x: number; y: number; label: string }>(null);
+
+  useEffect(() => {
+    async function fetchRatingData() {
+      try {
+        const response = await fetch(
+          "https://www.nttb-ranglijsten.nl/dwf/v2/?get_results=Coen Grutter",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: "username=0&jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6MH0.LPOp5onOcE3YSYUle0ewlCWuZ1nkCfw1NsMw9ru3QnY%0A&user=4182105&bno=4182105&comp=anything",
+          }
+        );
+
+        if (!response.ok) throw new Error("Failed to fetch rating data");
+
+        const data = await response.json();
+        const resultsArray = JSON.parse(data.results);
+        const ratingsObj = resultsArray[0];
+        setRaw(ratingsObj);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchRatingData();
+  }, []);
+
+  if (loading) return <div className="text-muted-foreground">Loading rating data...</div>;
+  if (error) return <div className="text-red-500">Error: {error}</div>;
+  if (!raw) return null;
+
+  // convert keys like "2020_1" (jan 1) and "2020_2" (jul 1) to Date and series
+  const series: { date: Date; rating: number }[] = Object.keys(raw)
+    .map((k) => {
+      const [year, half] = k.split("_");
+      const month = half === "1" ? 0 : 6; // Jan = 0, Jul = 6
+      return { date: new Date(Number(year), month, 1), rating: Number(raw[k]) };
+    })
+    .sort((a, b) => a.date.getTime() - b.date.getTime());
+
+  const padding = { top: 12, right: 24, bottom: 28, left: 48 };
+  const width = 760;
+  const height = 260;
+
+  if (!series || series.length === 0) return null;
+
+  const maxRating = Math.max(...series.map((s) => s.rating));
+  const minRating = 0;
+  const maxY = Math.ceil(maxRating / 500) * 500;
+
+  const xFor = (index: number) => {
+    const pct = index / (series.length - 1 || 1);
+    return padding.left + pct * (width - padding.left - padding.right);
+  };
+
+  const yFor = (r: number) => {
+    const pct = r / (maxY || 1);
+    return height - padding.bottom - pct * (height - padding.top - padding.bottom);
+  };
+
+  const pathD = series
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${xFor(i)} ${yFor(p.rating)}`)
+    .join(" ");
+
+  return (
+    <div className="mt-6">
+      {/* <div className="mb-3 text-sm font-semibold text-muted-foreground">Rating progression</div> */}
+      <div className="rounded-md bg-gradient-to-br from-white/5 to-white/3 p-4">
+        <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto" role="img">
+          {/* Y grid + labels */}
+          {Array.from({ length: Math.floor(maxY / 500) + 1 }).map((_, i) => {
+            const r = i * 500;
+            const y = yFor(r);
+            return (
+              <g key={r}>
+                <line
+                  x1={padding.left}
+                  x2={width - padding.right}
+                  y1={y}
+                  y2={y}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <text x={12} y={y + 4} fill="rgba(255,255,255,0.7)" fontSize={11}>
+                  {r}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* X labels */}
+          {(() => {
+            const years = new Set<number>();
+            const yearIndices: { year: number; index: number }[] = [];
+            series.forEach((s, i) => {
+              const year = s.date.getFullYear();
+              if (!years.has(year)) {
+                years.add(year);
+                yearIndices.push({ year, index: i });
+              }
+            });
+            return yearIndices.map((item, i) => (
+              <text
+                key={i}
+                x={xFor(item.index)}
+                y={height - 6}
+                textAnchor="middle"
+                fill="rgba(255,255,255,0.65)"
+                fontSize={11}
+              >
+                {item.year}
+              </text>
+            ));
+          })()}
+
+          {/* line shadow */}
+          <path d={pathD} fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" />
+          {/* main line */}
+          <path d={pathD} fill="none" stroke="#7C5CFC" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
+
+          {/* points */}
+          {series.map((s, i) => {
+            const x = xFor(i);
+            const y = yFor(s.rating);
+            return (
+              <g key={i}>
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={5}
+                  fill="#fff"
+                  stroke="#7C5CFC"
+                  strokeWidth={2}
+                  onMouseEnter={(e) =>
+                    setTip({ x: e.clientX, y: e.clientY, label: `${s.date.getFullYear()} ${s.date.getMonth() === 0 ? "Jan" : "Jul"}: ${s.rating}` })
+                  }
+                  onMouseMove={(e) =>
+                    setTip({ x: e.clientX, y: e.clientY, label: `${s.date.getFullYear()} ${s.date.getMonth() === 0 ? "Jan" : "Jul"}: ${s.rating}` })
+                  }
+                  onMouseLeave={() => setTip(null)}
+                />
+              </g>
+            );
+          })}
+        </svg>
+
+        {tip && (
+          <div
+            style={{ position: "fixed", left: tip.x + 12, top: tip.y + 12, pointerEvents: "none" }}
+            className="rounded-md bg-foreground/95 px-3 py-1 text-sm text-background"
+          >
+            {tip.label}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
