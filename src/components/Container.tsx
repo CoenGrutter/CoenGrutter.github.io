@@ -39,11 +39,12 @@ const variants = {
 const navLinks = [
   { href: "#home", text: "Home" },
   { href: "#about", text: "About" },
-  //{ href: "#skills", text: "Skills" },
+  { href: "#skills", text: "Skills" },
   { href: "#projects", text: "Projects" },
   { href: "#experience", text: "Experience" },
   { href: "#certifications", text: "Certifications" },
   { href: "#contact", text: "Contact" },
+  { href: "#resume", text: "Resume" },
 ];
 
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
@@ -125,19 +126,17 @@ export default function Container(props: ContainerProps) {
         {/* TODO: might have to change these URLS to whatever its deployed to. */}
         <meta
           property="og:url"
-          content={`https://www.wendoj.codes${router.asPath}`}
+          content={`https://coengrutter.github.io.codes${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://www.wendoj.codes${router.asPath}`}
+          href={`https://coengrutter.github.io.codes${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="WendoJ" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="WendoJ" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />

@@ -209,7 +209,7 @@ export default function Home() {
 
 {/*#uncomment from here... */}
 
-        {/* <section id="skills" data-scroll-section>
+        <section id="skills" data-scroll-section>
           
           <div className="relative isolate -z-10">
             <div
@@ -231,48 +231,54 @@ export default function Home() {
             </span>
 
 
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
-              Cloud computing
+
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              Cloud 
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              description. mention begin at sue, hands on experience with various services during minor.
+              Experience deploying to AWS, using various services such as: <br></br> 
+              - EC2, ECS and Lambda for backends <br></br>
+              - S3 (static website hosting) for frontends <br></br>
+              - RDS and DynamoDB for databases <br></br>
             </p>
+            
 
-
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Backend
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              description
+              Experience designing RESTful APIs, and building backends with Java, Python, and Go
             </p>
 
 
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Databases
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              description of some db types
+              Experience with both SQL and NoSQL, using databases such as PostgreSQL and DynamoDB
             </p>
 
 
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Frontend
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              description for frontend. mention smthing abt less comfortable but still knowledgeable
+              Experience developing frontends using various frameworks such as React, Vue and Angular 
             </p>
 
+
+
       
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Scrum
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              description for for scrum.
+              Experience practising Scrum methodologies as developer, scrum master and product owner, during ceremonies such as sprint planning, review, retrospective and daily standups.
             </p>
             
           </div>
 
-        </section> */}
+        </section>
 
 {/* till here. }       
 
