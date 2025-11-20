@@ -267,6 +267,13 @@ export default function Home() {
             </p>
 
 
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              CI/CD
+            </h2>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              Experience writing tests and setting up CI/CD pipelines to guarantee code quality and automate deployments
+            </p>
+
 
       
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
