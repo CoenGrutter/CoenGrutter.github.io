@@ -241,7 +241,7 @@ export default function Home() {
               - S3 (static website hosting) for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
             </p>
-            
+
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Backend
@@ -307,7 +307,7 @@ export default function Home() {
               SQLQuerryAssist
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              The goal of the SQLQueryAssist was to let users query their databases using natural language. It utilized a large language model to analyze the users database, so that it could convert data requests into SQL queries, which were then executed, returning the requested data.
+              The goal of the SQLQueryAssist was to let users query their databases using natural language. It utilized a large language model to analyze the users database, so that it could convert data requests into SQL queries, which were then executed, returning the requested data, all using natural language.
             </p>
 
             {/* <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
