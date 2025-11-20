@@ -207,7 +207,7 @@ export default function Home() {
           </div>
         </section>
 
-#uncomment from here... 
+{/*#uncomment from here... */}
 
         {/* <section id="skills" data-scroll-section>
           
@@ -274,7 +274,7 @@ export default function Home() {
 
         </section> */}
 
-# till here.        
+{/* till here. }       
 
         {/* Projects */}
         <section id="projects" data-scroll-section>
