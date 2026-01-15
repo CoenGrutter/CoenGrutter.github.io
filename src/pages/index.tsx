@@ -240,6 +240,8 @@ export default function Home() {
               - EC2, ECS and Lambda for backends <br></br>
               - S3 (static website hosting) for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
+
+              Recently started using IaC, and it is such a good developer experience; I love Cloudformation, and deploying without any manual intervention is really nice.
             </p>
 
 
