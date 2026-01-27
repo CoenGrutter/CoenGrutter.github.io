@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn, scrollTo } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 import Preloader from "@/components/Preloader";
@@ -81,7 +81,9 @@ function NavItem(props: NavProps) {
 export default function Container(props: ContainerProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const lastScrollY = useRef(0);
 
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -92,12 +94,21 @@ export default function Container(props: ContainerProps) {
     type: "website",
     ...customMeta,
   };
-  //todo: see what happens when you put the assets / logo.webpimage bakc. see wehre it shows up. 
 
   // handle scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 0);
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -146,8 +157,9 @@ export default function Container(props: ContainerProps) {
       <nav
         className={cn(
           styles.nav,
+          isVisible ? "translate-y-0" : "-translate-y-full",
           isScrolled
-            ? "bg-gradient-to-br from-background to-transparent shadow-md backdrop-blur transition"
+            ? "bg-gradient-to-br from-background to-transparent shadow-md backdrop-blur"
             : "bg-transparent",
         )}
       >

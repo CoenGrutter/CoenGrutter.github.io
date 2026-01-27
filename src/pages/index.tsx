@@ -165,7 +165,7 @@ export default function Home() {
 
         {/* About */}
         <section id="about" data-scroll-section>
-                    {/* Gradient */}
+          {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
               className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
@@ -190,26 +190,26 @@ export default function Home() {
               About Me
             </span>
             <h2 className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-            {/* TODO: edit je info*/}
-            I&apos;m a problem solver. And a problem finder, I just realized. It&apos;s what makes me stand out. <br></br>
-            I think critically about processes that others deem optimized, and question why we do things the way we do. <br></br>
-            This mindset is what got me into software development; The ability to build anything I want, with the only limitation, my own imagination. <br></br>
-            <br></br>
-            <br></br>
-            In my free time, I play table tennis! Check out my rating progression over the years: <br></br>
-            
-          </h2>
-          {/* rating chart */}
-          <div className="max-w-3xl px-4">
-            <RatingProgression />
-          </div>
+              {/* TODO: edit je info*/}
+              I&apos;m a problem solver. And a problem finder, I just realized. It&apos;s what makes me stand out. <br></br>
+              I think critically about processes that others deem optimized, and question why we do things the way we do. <br></br>
+              This mindset is what got me into software development; The ability to build anything I want, with the only limitation, my own imagination. <br></br>
+              <br></br>
+              <br></br>
+              In my free time, I play table tennis! Check out my rating progression over the years: <br></br>
+
+            </h2>
+            {/* rating chart */}
+            <div className="max-w-3xl px-4">
+              <RatingProgression />
+            </div>
           </div>
         </section>
 
-{/*#uncomment from here... */}
+        {/*#uncomment from here... */}
 
         <section id="skills" data-scroll-section>
-          
+
           <div className="relative isolate -z-10">
             <div
               className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
@@ -232,10 +232,10 @@ export default function Home() {
 
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
-              Cloud 
+              Cloud
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              Experience deploying to AWS, using various services such as: <br></br> 
+              Experience deploying to AWS, using various services such as: <br></br>
               - EC2, ECS and Lambda for backends <br></br>
               - S3 (static website hosting) for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
@@ -264,7 +264,7 @@ export default function Home() {
               Frontend
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              Experience developing frontends using various frameworks such as React, Vue and Angular 
+              Experience developing frontends using various frameworks such as React, Vue and Angular
             </p>
 
 
@@ -276,19 +276,19 @@ export default function Home() {
             </p>
 
 
-      
+
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Scrum
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
               Experience practicing Scrum methodologies as developer, scrum master and product owner, during ceremonies such as sprint planning, review, retrospective and daily standups.
             </p>
-            
+
           </div>
 
         </section>
 
-{/* till here. }       
+        {/* till here. }       
 
         {/* Projects */}
         <section id="projects" data-scroll-section>
@@ -326,20 +326,22 @@ export default function Home() {
                 They could also request recovery operators, and track the progress of ongoing recoveries.
               </p>
               <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Here are some of the results:</div>
-              <img src="/img/aimas.png" alt="Aimas" className="mt-4" />
+              <img src="/img/aimas.png" alt="Aimas" className="mt-4 max-w-5xl" />
 
             </h2>
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
-              Magic The Gathering 
+              Magic The Gathering
               <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
                 As part of the Cloud Native Software Development minor, we were tasked with building a Magic The Gathering card collection and deck manager. <br></br>
                 Users can login, search for cards, add them to their collection, and build decks with cards in their collection. <br></br>
                 The application then validates the deck according to the <a href="https://mtg.fandom.com/wiki/Commander_(format)#:~:text=to%20be%20playing.-,Deckbuilding%20rules,-When%20choosing%20a" target="_blank" className="underline">official rules</a> of the Commander format.
               </p>
               <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Here are some of the results:</div>
-              <img src="/img/collection.png" alt="Magic The Gathering" className="mt-4" />
-              <img src="/img/valid_deck.png" alt="Magic The Gathering" className="mt-4" />
+              <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Collection: </div>
+              <img src="/img/collection.png" alt="Magic The Gathering" className="mt-4 max-w-5xl" />
+              <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Deck builder: </div>
+              <img src="/img/valid_deck.png" alt="Magic The Gathering" className="mt-4 max-w-5xl" />
             </h2>
 
             {/* <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
@@ -354,7 +356,7 @@ export default function Home() {
 
         {/* Experience */}
         <section id="experience" data-scroll-section>
-                    {/* Gradient */}
+          {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
               className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
@@ -377,19 +379,19 @@ export default function Home() {
           >
           </div>
           <div className="flex flex-col space-y-3">
-         <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
-            My Experience
-          </span>
+            <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
+              My Experience
+            </span>
 
-          <span>
-            <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2025 - Jul 2025</span> </label>
-            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
-          </span>
-          <br></br>
+            <span>
+              <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2025 - Jul 2025</span> </label>
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
+            </span>
+            <br></br>
           </div>
         </section>
-   
-       
+
+
         {/* Certifications */}
         <section id="certifications" data-scroll-section>
           {/* Gradient */}
@@ -428,7 +430,7 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" data-scroll-section className="my-64">
-                    {/* Gradient */}
+          {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
               className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
@@ -523,7 +525,7 @@ function Gradient() {
 }
 
 function RatingProgression() {
-  
+
   const [raw, setRaw] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -546,7 +548,7 @@ function RatingProgression() {
 
         if (!response.ok) throw new Error("Failed to fetch rating data");
 
-    
+
         const data = await response.json();
 
         const resultsArray = JSON.parse(data.results);
