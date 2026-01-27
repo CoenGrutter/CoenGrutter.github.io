@@ -60,7 +60,6 @@ export default function Home() {
 
         if (li.getAttribute("href") === `#${current}`) {
           li.classList.add("nav-active");
-          console.log(li.getAttribute("href"));
         }
       });
     }
@@ -282,7 +281,7 @@ export default function Home() {
               Scrum
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              Experience practising Scrum methodologies as developer, scrum master and product owner, during ceremonies such as sprint planning, review, retrospective and daily standups.
+              Experience practicing Scrum methodologies as developer, scrum master and product owner, during ceremonies such as sprint planning, review, retrospective and daily standups.
             </p>
             
           </div>
@@ -314,10 +313,34 @@ export default function Home() {
             </span>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
               SQLQuerryAssist
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+                The goal of the SQLQueryAssist was to let users query their databases using natural language. It utilized a large language model to analyze the users database, so that it could convert data requests into SQL queries, which were then executed, returning the requested data, all using natural language.
+              </p>
             </h2>
-            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              The goal of the SQLQueryAssist was to let users query their databases using natural language. It utilized a large language model to analyze the users database, so that it could convert data requests into SQL queries, which were then executed, returning the requested data, all using natural language.
-            </p>
+
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+              Aimas
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+                The goal of Aimas (Accident and Incident Management System) was to create a web application to keep track of active road incidents in the Netherlands. <br></br>
+                Operators could use the application to report new incidents, and view the status of incoming incidents. <br></br>
+                They could also request recovery operators, and track the progress of ongoing recoveries.
+              </p>
+              <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Here are some of the results:</div>
+              <img src="/img/aimas.png" alt="Aimas" className="mt-4" />
+
+            </h2>
+
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-4xl">
+              Magic The Gathering 
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+                As part of the Cloud Native Software Development minor, we were tasked with building a Magic The Gathering card collection and deck manager. <br></br>
+                Users can login, search for cards, add them to their collection, and build decks with cards in their collection. <br></br>
+                The application then validates the deck according to the <a href="https://mtg.fandom.com/wiki/Commander_(format)#:~:text=to%20be%20playing.-,Deckbuilding%20rules,-When%20choosing%20a" target="_blank" className="underline">official rules</a> of the Commander format.
+              </p>
+              <div className="mt-1.5 text-base tracking-tight text-muted-foreground"> Here are some of the results:</div>
+              <img src="/img/collection.png" alt="Magic The Gathering" className="mt-4" />
+              <img src="/img/valid_deck.png" alt="Magic The Gathering" className="mt-4" />
+            </h2>
 
             {/* <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
               Project Two
@@ -359,8 +382,8 @@ export default function Home() {
           </span>
 
           <span>
-            <label> <Link href="https://sue.nl/" target="_blank" className="text-3xl font-semibold tracking-tight xl:text-4xl underline" >Sue</Link> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2025 - Jul 2025</span> </label>
-            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at Sue, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
+            <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2025 - Jul 2025</span> </label>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
           </span>
           <br></br>
           </div>
@@ -517,6 +540,7 @@ function RatingProgression() {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: "username=0&jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6MH0.LPOp5onOcE3YSYUle0ewlCWuZ1nkCfw1NsMw9ru3QnY%0A&user=4182105&bno=4182105&comp=anything",
+            //note: this jwt token isnt associated with me or anything; on a lazy day i reverse engineered the way the nttb rankings site fetches data, and found this token and put it in here.
           }
         );
 
