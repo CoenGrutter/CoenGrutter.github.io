@@ -138,7 +138,7 @@ export default function Home() {
               data-scroll-speed=".06"
               className="flex flex-row items-center space-x-1.5 pt-6"
             >
-              <Link href="mailto:gruttercoen@gmail.com" passHref>
+              <Link href="#contact" passHref>
                 <Button>
                   Get in touch <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
@@ -529,7 +529,7 @@ function RatingProgression() {
   const [raw, setRaw] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [tip, setTip] = useState<null | { x: number; y: number; label: string }>(null);
+  const [tip, setTip] = useState<null | { x: number; y: number; label: string; rawLabel: string; value: number }>(null);
 
   useEffect(() => {
     async function fetchRatingData() {
@@ -604,7 +604,7 @@ function RatingProgression() {
   return (
     <div className="mt-6">
       {/* <div className="mb-3 text-sm font-semibold text-muted-foreground">Rating progression</div> */}
-      <div className="rounded-md bg-gradient-to-br from-white/5 to-white/3 p-4">
+      <div className=" relative rounded-md bg-gradient-to-br from-white/5 to-white/3 p-4">
         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto" role="img">
           {/* Y grid + labels */}
           {Array.from({ length: Math.floor(maxY / 500) + 1 }).map((_, i) => {
@@ -669,11 +669,15 @@ function RatingProgression() {
                   fill="#fff"
                   stroke="#7C5CFC"
                   strokeWidth={2}
-                  onMouseEnter={(e) =>
-                    setTip({ x: e.clientX, y: e.clientY, label: `${s.date.getFullYear()} ${s.date.getMonth() === 0 ? "Jan" : "Jul"}: ${s.rating}` })
-                  }
-                  onMouseMove={(e) =>
-                    setTip({ x: e.clientX, y: e.clientY, label: `${s.date.getFullYear()} ${s.date.getMonth() === 0 ? "Jan" : "Jul"}: ${s.rating}` })
+                  className="cursor-pointer outline-none"
+                  onMouseEnter={() =>
+                    setTip({ 
+                      x, 
+                      y, 
+                      rawLabel: `${s.date.getMonth() === 0 ? "Jan" : "Jul"} ${s.date.getFullYear()}`,
+                      value: s.rating,
+                      label: "" // Not used in the new multi-line format
+                    })
                   }
                   onMouseLeave={() => setTip(null)}
                 />
@@ -682,12 +686,25 @@ function RatingProgression() {
           })}
         </svg>
 
+        {/* 3. The New Tooltip Logic */}
         {tip && (
           <div
-            style={{ position: "fixed", left: tip.x + 12, top: tip.y + 12, pointerEvents: "none" }}
-            className="rounded-md bg-foreground/95 px-3 py-1 text-sm text-background"
+            style={{ 
+              position: "absolute", // Absolute relative to the p-4 container
+              // Convert SVG coordinates to percentages for perfect scaling
+              left: `${(tip.x / width) * 100}%`, 
+              top: `${(tip.y / height) * 100}%`, 
+              transform: "translate(-50%, -115%)", // Centers it and moves it ABOVE
+              pointerEvents: "none",
+              zIndex: 50
+            }}
+            className="rounded-md bg-foreground/95 px-3 py-1.5 text-xs text-background shadow-xl"
           >
-            {tip.label}
+            {/* Multi-line style as seen in your screenshot */}
+            <div className="flex flex-col items-center text-center">
+              <span className="opacity-80">{tip.rawLabel}</span>
+              <span className="font-bold">{tip.value}</span>
+            </div>
           </div>
         )}
       </div>
