@@ -44,19 +44,25 @@
     body {
       @apply w-fit;
     }
+
     [data-scroll-container] {
       @apply flex;
     }
   }
+
   * {
     @apply border-border;
   }
+
   html {
     @apply antialiased;
+    scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground cursor-wait;
   }
+
   section {
     scroll-margin-top: 60px;
   }
@@ -67,12 +73,15 @@
   ::-webkit-scrollbar {
     @apply h-2.5 w-2 transition;
   }
+
   ::-webkit-scrollbar-track {
     @apply bg-background;
   }
+
   ::-webkit-scrollbar-thumb {
     @apply bg-muted;
   }
+
   ::-webkit-scrollbar-thumb:active {
     @apply bg-primary;
   }
@@ -83,13 +92,16 @@
   .clash-grotesk {
     font-family: "ClashGrotesk-Variable", sans-serif;
   }
+
   .text-gradient {
     @apply bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent;
   }
+
   .nav-active {
     color: rgb(226 232 240) !important;
     @apply text-sm lowercase tracking-tight text-slate-200;
   }
+
   .nav-link {
     /* Remove the styles from nav-link class */
     @apply text-sm lowercase tracking-tight text-slate-400;
@@ -100,10 +112,12 @@
     from {
       opacity: 1;
     }
+
     to {
       opacity: 0;
     }
   }
+
   .animate-blink {
     animation: blink 1s infinite;
   }

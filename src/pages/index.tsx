@@ -25,47 +25,45 @@ import VanillaTilt from "vanilla-tilt";
 
 
 export default function Home() {
-  const refScrollContainer = useRef(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
 
-  // handle scroll
+  // handle scroll with throttling
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-link");
-
-    async function getLocomotive() {
-      const Locomotive = (await import("locomotive-scroll")).default;
-      new Locomotive({
-        el: refScrollContainer.current ?? new HTMLElement(),
-        smooth: true,
-      });
-    }
+    let ticking = false;
 
     function handleScroll() {
-      let current = "";
-      setIsScrolled(window.scrollY > 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let current = "";
+          setIsScrolled(window.scrollY > 0);
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 250) {
-          current = section.getAttribute("id") ?? "";
-        }
-      });
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 250) {
+              current = section.getAttribute("id") ?? "";
+            }
+          });
 
-      navLinks.forEach((li) => {
-        li.classList.remove("nav-active");
+          navLinks.forEach((li) => {
+            li.classList.remove("nav-active");
 
-        if (li.getAttribute("href") === `#${current}`) {
-          li.classList.add("nav-active");
-        }
-      });
+            if (li.getAttribute("href") === `#${current}`) {
+              li.classList.add("nav-active");
+            }
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     }
 
-    void getLocomotive();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -98,23 +96,17 @@ export default function Home() {
 
   return (
     <Container>
-      <div ref={refScrollContainer}>
+      <div>
         <Gradient />
 
         {/* Intro */}
         <section
           id="home"
-          data-scroll-section
           className="mt-40 flex w-full flex-col items-center xl:mt-0 xl:min-h-screen xl:flex-row xl:justify-between"
         >
           <div className={styles.intro}>
             <div>
-              <h1
-                data-scroll
-                data-scroll-enable-touch-speed
-                data-scroll-speed=".06"
-                data-scroll-direction="horizontal"
-              >
+              <h1>
                 <span className="text-6xl tracking-tighter text-foreground 2xl:text-8xl">
                   Hi, I&apos;m
                   <br />
@@ -124,18 +116,12 @@ export default function Home() {
                 </span>
               </h1>
               <p
-                data-scroll
-                data-scroll-enable-touch-speed
-                data-scroll-speed=".06"
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
                 Student software developer specializing in web development and working in the cloud. <br></br> Currently in my final year of college
               </p>
             </div>
             <span
-              data-scroll
-              data-scroll-enable-touch-speed
-              data-scroll-speed=".06"
               className="flex flex-row items-center space-x-1.5 pt-6"
             >
               <Link href="#contact" passHref>
@@ -164,7 +150,7 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" data-scroll-section>
+        <section id="about">
           {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
@@ -181,9 +167,6 @@ export default function Home() {
             </div>
           </div>
           <div
-            data-scroll
-            data-scroll-speed=".4"
-            data-scroll-position="top"
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
             <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
@@ -193,7 +176,7 @@ export default function Home() {
               {/* TODO: edit je info*/}
               I&apos;m a problem solver. And a problem finder, I just realized. It&apos;s what makes me stand out. <br></br>
               I think critically about processes that others deem optimized, and question why we do things the way we do. <br></br>
-              This mindset is what got me into software development; The ability to build anything I want, with the only limitation, my own imagination. <br></br>
+              I believe this mindset is a necessity for innovation and improvement. <br></br>
               <br></br>
               <br></br>
               In my free time, I play table tennis! Check out my rating progression over the years: <br></br>
@@ -208,7 +191,7 @@ export default function Home() {
 
         {/*#uncomment from here... */}
 
-        <section id="skills" data-scroll-section>
+        <section id="skills">
 
           <div className="relative isolate -z-10">
             <div
@@ -224,7 +207,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div data-scroll data-scroll-speed=".4" className="my-64">
+          <div className="my-64">
             <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
               🛠 Skills
             </span>
@@ -291,7 +274,7 @@ export default function Home() {
         {/* till here. }       
 
         {/* Projects */}
-        <section id="projects" data-scroll-section>
+        <section id="projects">
           {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
@@ -307,7 +290,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div data-scroll data-scroll-speed=".4" className="my-64">
+          <div className="my-64">
             <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
               ✨ Projects
             </span>
@@ -355,7 +338,7 @@ export default function Home() {
         </section>
 
         {/* Experience */}
-        <section id="experience" data-scroll-section>
+        <section id="experience">
           {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
@@ -372,9 +355,6 @@ export default function Home() {
             </div>
           </div>
           <div
-            data-scroll
-            data-scroll-speed=".4"
-            data-scroll-position="top"
             className="my-24 flex flex-col justify-start space-y-10"
           >
           </div>
@@ -393,7 +373,7 @@ export default function Home() {
 
 
         {/* Certifications */}
-        <section id="certifications" data-scroll-section>
+        <section id="certifications">
           {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
@@ -410,9 +390,6 @@ export default function Home() {
             </div>
           </div>
           <div
-            data-scroll
-            data-scroll-speed=".4"
-            data-scroll-position="top"
             className="my-24 flex flex-col justify-start space-y-10"
           >
             <div className="flex flex-col space-y-3">
@@ -429,7 +406,7 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section id="contact" data-scroll-section className="my-64">
+        <section id="contact" className="my-64">
           {/* Gradient */}
           <div className="relative isolate -z-10">
             <div
@@ -446,9 +423,6 @@ export default function Home() {
             </div>
           </div>
           <div
-            data-scroll
-            data-scroll-speed=".4"
-            data-scroll-position="top"
             className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-16 text-center xl:py-24"
           >
             <h2 className="text-4xl font-medium tracking-tighter xl:text-6xl">
@@ -671,9 +645,9 @@ function RatingProgression() {
                   strokeWidth={2}
                   className="cursor-pointer outline-none"
                   onMouseEnter={() =>
-                    setTip({ 
-                      x, 
-                      y, 
+                    setTip({
+                      x,
+                      y,
                       rawLabel: `${s.date.getMonth() === 0 ? "Jan" : "Jul"} ${s.date.getFullYear()}`,
                       value: s.rating,
                       label: "" // Not used in the new multi-line format
@@ -689,11 +663,11 @@ function RatingProgression() {
         {/* 3. The New Tooltip Logic */}
         {tip && (
           <div
-            style={{ 
+            style={{
               position: "absolute", // Absolute relative to the p-4 container
               // Convert SVG coordinates to percentages for perfect scaling
-              left: `${(tip.x / width) * 100}%`, 
-              top: `${(tip.y / height) * 100}%`, 
+              left: `${(tip.x / width) * 100}%`,
+              top: `${(tip.y / height) * 100}%`,
               transform: "translate(-50%, -115%)", // Centers it and moves it ABOVE
               pointerEvents: "none",
               zIndex: 50
