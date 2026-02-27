@@ -413,6 +413,7 @@ export default function Home() {
               <h2 className="text-3xl font-semibold tracking-tight xl:text-3xl">
                 These certifications serve as a proof of my expertise, and my commitment to continuous learning
               </h2>
+              <CredlyEmbed badgeId="0fedc58e-444c-44fb-b50f-62e82aad8729" />
               <CredlyEmbed badgeId="9ffd2bbe-5fa6-4f48-bc9b-f10fd0ec77c4" />
               <CredlyEmbed badgeId="5f469b04-5a86-4c81-8f29-50b5413c1f1c" />
             </div>
