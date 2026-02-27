@@ -222,8 +222,15 @@ export default function Home() {
               - EC2, ECS and Lambda for backends <br></br>
               - S3 (static website hosting) for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
+              - CloudWatch for monitoring and logging <br></br>
+              - IaC for automation through CloudFormation and CDK <br></br>
+            </p>
 
-              Recently started using IaC, and it is such a good developer experience; I love Cloudformation, and deploying without any manual intervention is really nice.
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              Containerization and Orchestration
+            </h2>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              Experience with Docker and Kubernetes, including containerizing applications and orchestrating them in a cluster
             </p>
 
 
@@ -236,20 +243,18 @@ export default function Home() {
 
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
-              Databases
-            </h2>
-            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              Experience with both SQL and NoSQL, using databases such as PostgreSQL and DynamoDB
-            </p>
-
-
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               Frontend
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
               Experience developing frontends using various frameworks such as React, Vue and Angular
             </p>
 
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              Databases
+            </h2>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              Experience with both SQL and NoSQL, using databases such as PostgreSQL and DynamoDB
+            </p>
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               CI/CD
@@ -265,6 +270,15 @@ export default function Home() {
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
               Experience practicing Scrum methodologies as developer, scrum master and product owner, during ceremonies such as sprint planning, review, retrospective and daily standups.
+            </p>
+            
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              Miscellaneous
+            </h2>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              Tools I use every day, but didn&apos;t fit any specific category: <br></br>
+              - Linux <br></br>
+              - Git <br></br>
             </p>
 
           </div>

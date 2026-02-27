@@ -35,12 +35,12 @@ export default function Footer() {
           </span>
         </span>
 
-        <span className="flex flex-row items-center space-x-4" id="resume">
+        {/* <span className="flex flex-row items-center space-x-4" id="resume">
           <hr className="hidden h-6 border-l border-muted md:flex" />
           <span className="flex hidden flex-row items-center space-x-2 md:flex">
             <a className="text-sm underline text-muted-foreground" href="/CoenGrutterResume.pdf">My Resume</a>
           </span>
-        </span>
+        </span> */}
 
         
       </div>
