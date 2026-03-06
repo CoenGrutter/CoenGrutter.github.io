@@ -220,7 +220,7 @@ export default function Home() {
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
               Experience deploying to AWS, using various services such as: <br></br>
               - EC2, ECS and Lambda for backends <br></br>
-              - S3 (static website hosting) for frontends <br></br>
+              - S3 and CloudFront for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
               - CloudWatch for monitoring and logging <br></br>
               - IaC for automation through CloudFormation and CDK <br></br>
