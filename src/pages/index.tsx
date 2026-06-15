@@ -223,7 +223,7 @@ export default function Home() {
               - S3 and CloudFront for frontends <br></br>
               - RDS and DynamoDB for databases <br></br>
               - CloudWatch for monitoring and logging <br></br>
-              - IaC for automation through CloudFormation and CDK <br></br>
+              - IaC for automation through CloudFormation, Terraform and CDK <br></br>
             </p>
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
