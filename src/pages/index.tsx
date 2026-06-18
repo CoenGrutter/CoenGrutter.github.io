@@ -396,6 +396,49 @@ export default function Home() {
         </section>
 
 
+        {/* Education */}
+        <section id="education">
+          {/* Gradient */}
+          <div className="relative isolate -z-10">
+            <div
+              className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
+              aria-hidden="true"
+            >
+              <div
+                className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary via-primary to-secondary opacity-10 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                style={{
+                  clipPath:
+                    "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+                }}
+              />
+            </div>
+          </div>
+          <div
+            className="my-24 flex flex-col justify-start space-y-10"
+          >
+          </div>
+          <div className="flex flex-col space-y-3">
+            <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
+              🎓 Education
+            </span>
+
+            <span>
+              <label>
+                <span className="text-3xl font-semibold tracking-tight xl:text-4xl">
+                  Hogeschool Utrecht
+                </span>
+                <span className="ml-2 text-base font-normal text-muted-foreground align-middle">
+                  Sep 2022 - Jul 2026
+                </span>
+              </label>
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+                Bachelor of Science in Information and Communication Technology
+              </p>
+            </span>
+          </div>
+        </section>
+
+
         {/* Certifications */}
         <section id="certifications">
           {/* Gradient */}
