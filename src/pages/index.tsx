@@ -379,9 +379,19 @@ export default function Home() {
 
             <span>
               <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2025 - Jul 2025</span> </label>
-              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my first internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how LLMs could be used to automatically monitor and analyze cloud infrastructure. I also dove into the workings of the Model Context Protocol, and how it could be applied to realize LLM driven AI agents that can automatically manage cloud infrastructure.</p>
             </span>
             <br></br>
+
+            <span>
+              <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Feb 2026 - Jul 2026</span> </label>
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> During my graduation internship at <Link href="https://sue.nl/" target="_blank" className="underline">Sue</Link>, I researched how cloud-exits could be orchestrated with minimal service degredation. A core part of this reserach involved developing alternatives to cloud specific functionality, so as to reduce vendor lock-in.</p>
+            </span>
+            <br></br>
+            <span>
+              <label> <span className="text-3xl font-semibold tracking-tight xl:text-4xl" >Sue</span> <span className="ml-2 text-base font-normal text-muted-foreground align-middle">Jul 2026 - present</span> </label>
+              <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg"> Engineer</p>
+            </span>
           </div>
         </section>
 
