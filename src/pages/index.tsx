@@ -118,7 +118,7 @@ export default function Home() {
               <p
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
-                Student software developer specializing in web development and working in the cloud. <br></br> Currently in my final year of college
+              Software developer specializing in web development and working in the cloud.
               </p>
             </div>
             <span
