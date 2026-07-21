@@ -466,9 +466,24 @@ export default function Home() {
               <h2 className="text-3xl font-semibold tracking-tight xl:text-3xl">
                 These certifications serve as a proof of my expertise, and my commitment to continuous learning
               </h2>
-              <CredlyEmbed badgeId="0fedc58e-444c-44fb-b50f-62e82aad8729" />
-              <CredlyEmbed badgeId="9ffd2bbe-5fa6-4f48-bc9b-f10fd0ec77c4" />
-              <CredlyEmbed badgeId="5f469b04-5a86-4c81-8f29-50b5413c1f1c" />
+              <CredlyEmbed
+                badgeId="0fedc58e-444c-44fb-b50f-62e82aad8729"
+                imageId="0e284c3f-5164-4b21-8660-0d84737941bc"
+                title="AWS Certified Solutions Architect – Associate"
+                issuer="Amazon Web Services"
+              />
+              <CredlyEmbed
+                badgeId="9ffd2bbe-5fa6-4f48-bc9b-f10fd0ec77c4"
+                imageId="b9feab85-1a43-4f6c-99a5-631b88d5461b"
+                title="AWS Certified Developer – Associate"
+                issuer="Amazon Web Services"
+              />
+              <CredlyEmbed
+                badgeId="5f469b04-5a86-4c81-8f29-50b5413c1f1c"
+                imageId="a2790314-008a-4c3d-9553-f5e84eb359ba"
+                title="Professional Scrum Master™ I (PSM I)"
+                issuer="Scrum.org"
+              />
             </div>
           </div>
         </section>
