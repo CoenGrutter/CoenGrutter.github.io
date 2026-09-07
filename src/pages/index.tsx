@@ -115,10 +115,11 @@ export default function Home() {
                   Coen
                 </span>
               </h1>
-              <p
-                className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
-              >
+              <p className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl">
               Software developer specializing in web development and working in the cloud.
+              </p>
+              <p className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl">
+              Currently employed at Sue, where I work on a big application modernization project. 
               </p>
             </div>
             <span
@@ -279,6 +280,7 @@ export default function Home() {
               Tools I use every day, but didn&apos;t fit any specific category: <br></br>
               - Linux <br></br>
               - Git <br></br>
+              - Jira <br></br>
             </p>
 
           </div>
