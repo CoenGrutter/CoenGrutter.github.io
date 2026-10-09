@@ -1,8 +1,10 @@
 interface CredlyEmbedProps {
   /** The Credly badge id, used to link to the verification page. */
   badgeId: string;
-  /** The Credly image id (from images.credly.com/images/<imageId>/image.png). */
+  /** The Credly image id (from images.credly.com/images/<imageId>/<imageFile>). */
   imageId: string;
+  /** The image file name; newer badges use "blob" instead of "image.png". */
+  imageFile?: string;
   /** The certification title. */
   title: string;
   /** The organization that issued the badge. */
@@ -12,6 +14,7 @@ interface CredlyEmbedProps {
 export default function CredlyEmbed({
   badgeId,
   imageId,
+  imageFile = "image.png",
   title,
   issuer,
 }: CredlyEmbedProps) {
@@ -24,7 +27,7 @@ export default function CredlyEmbed({
       className="group flex w-full max-w-md items-center gap-4 rounded-md bg-gradient-to-br from-white/5 to-white/3 p-4 transition hover:from-primary/10 hover:to-white/5"
     >
       <img
-        src={`https://images.credly.com/images/${imageId}/image.png`}
+        src={`https://images.credly.com/images/${imageId}/${imageFile}`}
         alt={title}
         width={80}
         height={80}

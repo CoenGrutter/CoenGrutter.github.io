@@ -486,6 +486,13 @@ export default function Home() {
                 title="Professional Scrum Master™ I (PSM I)"
                 issuer="Scrum.org"
               />
+              <CredlyEmbed
+                badgeId="f9013c66-306a-4049-8bf1-d506eb6f62c7"
+                imageId="6f614b71-3f2e-488e-8b29-71e90d4dbf80"
+                imageFile="blob"
+                title="HashiCorp Certified: Terraform Associate (004)"
+                issuer="HashiCorp"
+              />
             </div>
           </div>
         </section>
