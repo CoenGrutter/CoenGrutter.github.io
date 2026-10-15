@@ -258,6 +258,13 @@ export default function Home() {
             </p>
 
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
+              Application Modernization
+            </h2>
+            <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              Experience utilizing LLMs to perform application analysis and mass refactoring.
+            </p>
+
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-2xl">
               CI/CD
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
