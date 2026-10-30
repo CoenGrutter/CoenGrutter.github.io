@@ -1,0 +1,50 @@
+name: Rocket League MMR
+
+# Triggered by /rl-sync after it uploads a snapshot to the rl-data branch; can also be run manually.
+# Data lives on the rl-data branch so it never touches main or the Pages deploy.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rl-mmr
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout site (for the merge script)
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout data branch
+        uses: actions/checkout@v4
+        with:
+          ref: rl-data
+          path: data
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Merge snapshot into history
+        run: node site/scripts/rl-merge.mjs data/inbox.json data/rocket-league.json
+
+      - name: Commit if changed
+        working-directory: data
+        run: |
+          if [ -z "$(git status --porcelain -- rocket-league.json)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rocket-league.json
+          git commit -m "chore: update Rocket League MMR data"
+          git push

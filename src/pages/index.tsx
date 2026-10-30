@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import CredlyEmbed from "@/components/CredlyEmbed";
+import RocketLeagueStats from "@/components/RocketLeagueStats";
 import { useEffect, useRef, Suspense, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
@@ -186,6 +187,13 @@ export default function Home() {
             {/* rating chart */}
             <div className="max-w-3xl px-4">
               <RatingProgression />
+            </div>
+            <h2 className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
+              I also play Rocket League! Click a playlist to see its rank progression:
+            </h2>
+            {/* rocket league stats */}
+            <div className="max-w-3xl px-4">
+              <RocketLeagueStats />
             </div>
           </div>
         </section>
