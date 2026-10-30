@@ -224,7 +224,7 @@ function PlaylistDetail({ playlist, points, bands }: { playlist: RlPlaylist; poi
         </div>
       </div>
       {points.length >= 2 ? (
-        <MmrChart points={points} bands={bands} />
+        <MmrHistory key={playlist.id} points={points} bands={bands} />
       ) : (
         <div className="py-8 text-center text-sm text-muted-foreground">Not enough history for a chart yet.</div>
       )}
@@ -232,7 +232,67 @@ function PlaylistDetail({ playlist, points, bands }: { playlist: RlPlaylist; poi
   );
 }
 
-function MmrChart({ points, bands }: { points: RlPoint[]; bands: RlBand[] }) {
+const WINDOW_MONTHS = 12;
+const monthLabel = (p?: RlPoint) =>
+  p ? new Date(p.t).toLocaleDateString("en-GB", { month: "short", year: "numeric" }) : "";
+
+/** The first point of every month (history is sorted oldest first). */
+function monthlyPoints(points: RlPoint[]) {
+  const byMonth = new Map<string, RlPoint>();
+  for (const p of points) {
+    const month = p.t.slice(0, 7);
+    if (!byMonth.has(month)) byMonth.set(month, p);
+  }
+  return [...byMonth.values()];
+}
+
+/**
+ * Shows 12 monthly points plus the latest sync, with a slider that steps back a month at a time.
+ * Stepping back drops the latest sync and the newest month, and brings in an older month.
+ */
+function MmrHistory({ points, bands }: { points: RlPoint[]; bands: RlBand[] }) {
+  const months = useMemo(() => monthlyPoints(points), [points]);
+  const latest = points[points.length - 1];
+  const maxOffset = Math.max(0, months.length - WINDOW_MONTHS);
+  const [offset, setOffset] = useState(0);
+
+  const end = months.length - offset;
+  const shown = months.slice(Math.max(0, end - WINDOW_MONTHS), end);
+  if (offset === 0 && latest && latest !== shown[shown.length - 1]) shown.push(latest);
+
+  return (
+    <div>
+      <MmrChart points={shown} bands={bands} domainPoints={[...months, ...(latest ? [latest] : [])]} />
+      {maxOffset > 0 && (
+        <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
+          <span className="shrink-0">{monthLabel(shown[0])}</span>
+          <input
+            type="range"
+            min={0}
+            max={maxOffset}
+            step={1}
+            value={maxOffset - offset}
+            onChange={(e) => setOffset(maxOffset - Number(e.target.value))}
+            aria-label="Scroll through MMR history"
+            className="w-full cursor-pointer accent-[#7C5CFC]"
+          />
+          <span className="shrink-0">{monthLabel(shown[shown.length - 1])}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MmrChart({
+  points,
+  bands,
+  domainPoints = points,
+}: {
+  points: RlPoint[];
+  bands: RlBand[];
+  /** Points that set the y-axis range, so it stays put while the window slides. */
+  domainPoints?: RlPoint[];
+}) {
   const [hover, setHover] = useState<number | null>(null);
 
   const width = 760;
@@ -244,7 +304,7 @@ function MmrChart({ points, bands }: { points: RlPoint[]; bands: RlBand[] }) {
   const times = points.map((p) => new Date(p.t).getTime());
   const t0 = times[0]!;
   const t1 = times[times.length - 1]!;
-  const ratings = points.map((p) => p.rating);
+  const ratings = domainPoints.map((p) => p.rating);
   const minY = Math.floor((Math.min(...ratings) - 30) / 100) * 100;
   const maxY = Math.ceil((Math.max(...ratings) + 30) / 100) * 100;
 
@@ -330,6 +390,9 @@ function MmrChart({ points, bands }: { points: RlPoint[]; bands: RlBand[] }) {
         ))}
 
         <path d={pathD} fill="none" stroke="#7C5CFC" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+        {points.map((p, i) => (
+          <circle key={p.t} cx={xFor(times[i]!)} cy={yFor(p.rating)} r={4} fill="#fff" stroke="#7C5CFC" strokeWidth={2} />
+        ))}
 
         {hp && (
           <g pointerEvents="none">
