@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-10-30T15:45:22.892Z",
+  "updatedAt": "2026-10-30T20:57:46.702Z",
   "player": {
     "handle": "Coen-_-",
     "platform": "epic",
     "season": 38
   },
   "lifetime": {
-    "wins": 6435,
-    "goals": 22944,
-    "mVPs": 1841,
-    "saves": 19836,
-    "assists": 4370,
-    "shots": 41700,
-    "goalShotRatio": 55.02158273381295
+    "wins": 6452,
+    "goals": 22973,
+    "mVPs": 1847,
+    "saves": 19874,
+    "assists": 4393,
+    "shots": 41769,
+    "goalShotRatio": 55.00011970600206
   },
   "playlists": {
     "0": {
       "id": 0,
       "name": "Casual",
       "season": 38,
-      "rating": 1130,
-      "percentile": 64,
+      "rating": 1150,
+      "percentile": 67,
       "tier": "Unranked",
       "division": "Division I",
       "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-0.png",
@@ -94,22 +94,22 @@
       "id": 13,
       "name": "Ranked Standard 3v3",
       "season": 38,
-      "rating": 1169,
-      "percentile": 94,
-      "tier": "Champion I",
-      "division": "Division IV",
-      "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-16.png",
-      "deltaUp": 18,
-      "deltaDown": 109,
-      "peakRating": 1169,
-      "matchesPlayed": 15,
+      "rating": 1256,
+      "percentile": 96.9,
+      "tier": "Champion II",
+      "division": "Division III",
+      "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-17.png",
+      "deltaUp": 25,
+      "deltaDown": 76,
+      "peakRating": 1257,
+      "matchesPlayed": 30,
       "streak": {
         "type": "win",
-        "value": 2
+        "value": 1
       },
       "allTimePeak": {
-        "rating": 1190,
-        "season": 32,
+        "rating": 1257,
+        "season": 38,
         "tier": "Champion II",
         "division": "Division I",
         "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-17.png"
@@ -144,18 +144,18 @@
       "id": 28,
       "name": "Rumble",
       "season": 38,
-      "rating": 1056,
-      "percentile": 98.6,
+      "rating": 1082,
+      "percentile": 98.9,
       "tier": "Champion II",
-      "division": "Division I",
+      "division": "Division III",
       "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-17.png",
-      "deltaUp": 3,
-      "deltaDown": 15,
-      "peakRating": null,
-      "matchesPlayed": 0,
+      "deltaUp": 15,
+      "deltaDown": 4,
+      "peakRating": 1082,
+      "matchesPlayed": 10,
       "streak": {
         "type": "loss",
-        "value": 7
+        "value": 1
       },
       "allTimePeak": {
         "rating": 1199,
@@ -446,6 +446,12 @@
       {
         "t": "2026-10-29T00:00:00.000Z",
         "rating": 1130,
+        "tier": "Unranked",
+        "division": "Division I"
+      },
+      {
+        "t": "2026-10-30T00:00:00.000Z",
+        "rating": 1150,
         "tier": "Unranked",
         "division": "Division I"
       }
@@ -1765,9 +1771,9 @@
       },
       {
         "t": "2026-10-30T00:00:00.000Z",
-        "rating": 1169,
-        "tier": "Champion I",
-        "division": "Division IV"
+        "rating": 1256,
+        "tier": "Champion II",
+        "division": "Division III"
       }
     ],
     "27": [
@@ -2645,9 +2651,9 @@
       },
       {
         "t": "2026-10-30T00:00:00.000Z",
-        "rating": 1056,
+        "rating": 1082,
         "tier": "Champion II",
-        "division": "Division I"
+        "division": "Division III"
       }
     ],
     "29": [
@@ -4743,7 +4749,7 @@
       {
         "tier": "Bronze I",
         "division": 3,
-        "min": 143,
+        "min": 142,
         "max": 152
       },
       {
@@ -5212,7 +5218,7 @@
         "tier": "Grand Champion III",
         "division": 1,
         "min": 1299,
-        "max": 1306
+        "max": 1310
       },
       {
         "tier": "Grand Champion III",
@@ -5477,7 +5483,7 @@
       {
         "tier": "Platinum II",
         "division": 0,
-        "min": 712,
+        "min": 711,
         "max": 718
       },
       {
@@ -5989,7 +5995,7 @@
       {
         "tier": "Platinum II",
         "division": 0,
-        "min": 715,
+        "min": 713,
         "max": 718
       },
       {
@@ -6315,7 +6321,7 @@
       {
         "tier": "Bronze III",
         "division": 1,
-        "min": 294,
+        "min": 291,
         "max": 297
       },
       {
@@ -6526,7 +6532,7 @@
         "tier": "Platinum III",
         "division": 0,
         "min": 720,
-        "max": 725
+        "max": 728
       },
       {
         "tier": "Platinum III",
@@ -6827,14 +6833,14 @@
       {
         "tier": "Bronze III",
         "division": 1,
-        "min": 224,
+        "min": 225,
         "max": 237
       },
       {
         "tier": "Bronze III",
         "division": 2,
         "min": 241,
-        "max": 255
+        "max": 256
       },
       {
         "tier": "Bronze III",
@@ -7212,7 +7218,7 @@
         "tier": "Grand Champion I",
         "division": 1,
         "min": 1204,
-        "max": 1226
+        "max": 1227
       },
       {
         "tier": "Grand Champion I",
@@ -7266,7 +7272,7 @@
         "tier": "Grand Champion III",
         "division": 2,
         "min": 1398,
-        "max": 1422
+        "max": 1424
       },
       {
         "tier": "Grand Champion III",
@@ -7292,7 +7298,7 @@
         "tier": "Bronze I",
         "division": 1,
         "min": 120,
-        "max": 136
+        "max": 134
       },
       {
         "tier": "Bronze I",
@@ -7315,7 +7321,7 @@
       {
         "tier": "Bronze II",
         "division": 1,
-        "min": 186,
+        "min": 185,
         "max": 195
       },
       {
@@ -7579,7 +7585,7 @@
       {
         "tier": "Diamond I",
         "division": 1,
-        "min": 755,
+        "min": 740,
         "max": 767
       },
       {
@@ -7784,7 +7790,7 @@
         "tier": "Grand Champion III",
         "division": 3,
         "min": 1217,
-        "max": 1227
+        "max": 1224
       },
       {
         "tier": "Supersonic Legend",
@@ -8328,7 +8334,7 @@
         "tier": "Bronze I",
         "division": 3,
         "min": 157,
-        "max": 160
+        "max": 168
       },
       {
         "tier": "Bronze II",
@@ -8852,7 +8858,7 @@
         "tier": "Bronze II",
         "division": 1,
         "min": 180,
-        "max": 196
+        "max": 197
       },
       {
         "tier": "Bronze II",
@@ -9104,7 +9110,7 @@
         "tier": "Diamond I",
         "division": 2,
         "min": 798,
-        "max": 812
+        "max": 814
       },
       {
         "tier": "Diamond I",
@@ -9717,7 +9723,7 @@
       {
         "tier": "Grand Champion II",
         "division": 0,
-        "min": 1187,
+        "min": 1186,
         "max": 1198
       },
       {
