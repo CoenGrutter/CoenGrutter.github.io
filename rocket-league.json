@@ -31,6 +31,13 @@
       "streak": {
         "type": "win",
         "value": 0
+      },
+      "allTimePeak": {
+        "rating": 1576,
+        "season": 25,
+        "tier": "Unranked",
+        "division": "Division I",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-0.png"
       }
     },
     "10": {
@@ -49,6 +56,13 @@
       "streak": {
         "type": "win",
         "value": 3
+      },
+      "allTimePeak": {
+        "rating": 1072,
+        "season": 33,
+        "tier": "Champion I",
+        "division": "Division III",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-16.png"
       }
     },
     "11": {
@@ -67,6 +81,13 @@
       "streak": {
         "type": "win",
         "value": 5
+      },
+      "allTimePeak": {
+        "rating": 1617,
+        "season": 33,
+        "tier": "Grand Champion II",
+        "division": "Division I",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s15rank20.png"
       }
     },
     "13": {
@@ -85,6 +106,13 @@
       "streak": {
         "type": "win",
         "value": 2
+      },
+      "allTimePeak": {
+        "rating": 1190,
+        "season": 32,
+        "tier": "Champion II",
+        "division": "Division I",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-17.png"
       }
     },
     "27": {
@@ -103,6 +131,13 @@
       "streak": {
         "type": "loss",
         "value": 2
+      },
+      "allTimePeak": {
+        "rating": 797,
+        "season": 36,
+        "tier": "Diamond I",
+        "division": "Division III",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-13.png"
       }
     },
     "28": {
@@ -121,6 +156,13 @@
       "streak": {
         "type": "loss",
         "value": 7
+      },
+      "allTimePeak": {
+        "rating": 1199,
+        "season": 35,
+        "tier": "Grand Champion I",
+        "division": "Division I",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s15rank19.png"
       }
     },
     "29": {
@@ -139,6 +181,13 @@
       "streak": {
         "type": "win",
         "value": 2
+      },
+      "allTimePeak": {
+        "rating": 593,
+        "season": 19,
+        "tier": "Unranked",
+        "division": "Division I",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-0.png"
       }
     },
     "30": {
@@ -157,6 +206,13 @@
       "streak": {
         "type": "loss",
         "value": 1
+      },
+      "allTimePeak": {
+        "rating": 852,
+        "season": 29,
+        "tier": "Diamond II",
+        "division": "Division III",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-14.png"
       }
     },
     "34": {
@@ -175,6 +231,13 @@
       "streak": {
         "type": "loss",
         "value": 1
+      },
+      "allTimePeak": {
+        "rating": 1544,
+        "season": 38,
+        "tier": "Grand Champion I",
+        "division": "Division IV",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s15rank19.png"
       }
     },
     "61": {
@@ -193,6 +256,13 @@
       "streak": {
         "type": "win",
         "value": 1
+      },
+      "allTimePeak": {
+        "rating": 901,
+        "season": 37,
+        "tier": "Diamond III",
+        "division": "Division III",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-15.png"
       }
     },
     "63": {
@@ -211,6 +281,13 @@
       "streak": {
         "type": "loss",
         "value": 5
+      },
+      "allTimePeak": {
+        "rating": 879,
+        "season": 35,
+        "tier": "Diamond II",
+        "division": "Division III",
+        "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-14.png"
       }
     }
   },
