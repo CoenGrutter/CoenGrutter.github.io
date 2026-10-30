@@ -119,9 +119,9 @@ function PlaylistTable({
           <tr>
             <th className="px-3 py-2 font-medium">Playlist / Rank</th>
             <th className="px-3 py-2 font-medium">Rating</th>
-            <th className="hidden px-3 py-2 font-medium sm:table-cell">Div up / down</th>
+            <th className="hidden px-3 py-2 font-medium sm:table-cell">MMR up / down</th>
             <th className="hidden px-3 py-2 font-medium sm:table-cell">Peak</th>
-            <th className="hidden px-3 py-2 font-medium md:table-cell">Matches</th>
+            <th className="hidden px-3 py-2 font-medium md:table-cell">Matches this season</th>
           </tr>
         </thead>
         <tbody>
