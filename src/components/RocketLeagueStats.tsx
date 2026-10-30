@@ -62,7 +62,8 @@ export default function RocketLeagueStats() {
     if (!data) return [];
     const rank = (id: number) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length + id);
     return Object.values(data.playlists)
-      .filter((p) => p.rating != null)
+      // casual and other unranked playlists only confuse people who don't play
+      .filter((p) => p.rating != null && p.id !== 0 && p.tier !== "Unranked")
       .sort((a, b) => rank(a.id) - rank(b.id));
   }, [data]);
 
