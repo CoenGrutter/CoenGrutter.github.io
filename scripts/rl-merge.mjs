@@ -56,6 +56,21 @@ for (const seg of profile.segments) {
   };
 }
 
+// all-time best per playlist (tracker's "Peak Rating" card), across every season
+for (const seg of profile.segments) {
+  if (seg.type !== "peak-rating") continue;
+  const p = playlists[String(seg.attributes?.playlistId)];
+  const peak = seg.stats?.peakRating;
+  if (!p || peak?.value == null) continue;
+  p.allTimePeak = {
+    rating: Number(peak.value),
+    season: seg.attributes.season ?? null,
+    tier: peak.metadata?.name ?? null,
+    division: peak.metadata?.division ?? null,
+    iconUrl: peak.metadata?.iconUrl ?? null,
+  };
+}
+
 const overview = profile.segments.find((s) => s.type === "overview")?.stats ?? {};
 const lifetime = {};
 for (const key of ["wins", "goals", "mVPs", "saves", "assists", "shots", "goalShotRatio"]) {

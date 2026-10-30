@@ -20,7 +20,16 @@ export interface RlPlaylist {
   iconUrl: string | null;
   deltaUp: number | null;
   deltaDown: number | null;
+  /** Current-season peak. */
   peakRating: number | null;
+  /** Best rating across all seasons. */
+  allTimePeak?: {
+    rating: number;
+    season: number | null;
+    tier: string | null;
+    division: string | null;
+    iconUrl: string | null;
+  };
   matchesPlayed: number | null;
   streak: { type: string | null; value: number } | null;
 }

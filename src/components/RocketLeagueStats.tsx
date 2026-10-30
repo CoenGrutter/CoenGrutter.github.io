@@ -22,6 +22,17 @@ function timeAgo(iso: string) {
   return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
+/** All-time best: tracker's cross-season peak, unless this season or the recorded history beat it. */
+function bestPeak(p: RlPlaylist, points: RlPoint[] = []) {
+  const candidates = [p.allTimePeak?.rating, p.peakRating, ...points.map((pt) => pt.rating)].filter(
+    (n): n is number => n != null,
+  );
+  if (candidates.length === 0) return null;
+  const rating = Math.max(...candidates);
+  const season = p.allTimePeak && p.allTimePeak.rating === rating ? p.allTimePeak.season : p.season;
+  return { rating, season };
+}
+
 /** Rating change versus the last point recorded at least `days` ago. */
 function change(points: RlPoint[], current: number | null, days: number) {
   if (current == null || points.length === 0) return null;
@@ -64,7 +75,7 @@ export default function RocketLeagueStats() {
 
   return (
     <div className="mt-6 flex flex-col gap-4">
-      <PlaylistTable playlists={playlists} selected={current.id} onSelect={setSelected} />
+      <PlaylistTable playlists={playlists} history={data.history} selected={current.id} onSelect={setSelected} />
       <PlaylistDetail playlist={current} points={points} bands={data.bands[current.id] ?? []} />
       <div className="flex flex-wrap justify-between gap-2 px-1 text-xs text-muted-foreground">
         <span>Last updated {timeAgo(data.updatedAt)}</span>
@@ -81,12 +92,23 @@ export default function RocketLeagueStats() {
   );
 }
 
+function PeakCell({ peak }: { peak: ReturnType<typeof bestPeak> }) {
+  return (
+    <div className="flex flex-col">
+      <span className="font-semibold text-foreground">{fmt(peak?.rating)}</span>
+      {peak?.season != null && <span className="text-xs text-muted-foreground">Season {peak.season}</span>}
+    </div>
+  );
+}
+
 function PlaylistTable({
   playlists,
+  history,
   selected,
   onSelect,
 }: {
   playlists: RlPlaylist[];
+  history: RlData["history"];
   selected: number;
   onSelect: (id: number) => void;
 }) {
@@ -141,7 +163,9 @@ function PlaylistTable({
                 <span className="text-green-400">{p.deltaUp != null ? `▲ ${p.deltaUp}` : ""}</span>{" "}
                 <span className="text-red-400">{p.deltaDown != null ? `▼ ${p.deltaDown}` : ""}</span>
               </td>
-              <td className="hidden px-3 py-2 text-foreground sm:table-cell">{fmt(p.peakRating)}</td>
+              <td className="hidden px-3 py-2 sm:table-cell">
+                <PeakCell peak={bestPeak(p, history[p.id])} />
+              </td>
               <td className="hidden rounded-r-md px-3 py-2 text-foreground md:table-cell">
                 {fmt(p.matchesPlayed)}
               </td>
@@ -170,7 +194,7 @@ function Delta({ label, value }: { label: string; value: number | null }) {
 }
 
 function PlaylistDetail({ playlist, points, bands }: { playlist: RlPlaylist; points: RlPoint[]; bands: RlBand[] }) {
-  const peak = Math.max(playlist.peakRating ?? -Infinity, ...points.map((p) => p.rating));
+  const peak = bestPeak(playlist, points);
 
   return (
     <div className="rounded-md bg-gradient-to-br from-white/5 to-white/3 p-4">
@@ -192,8 +216,10 @@ function PlaylistDetail({ playlist, points, bands }: { playlist: RlPlaylist; poi
         <Delta label="Week" value={change(points, playlist.rating, 7)} />
         <Delta label="Month" value={change(points, playlist.rating, 30)} />
         <div className="flex flex-col">
-          <span className="text-xs text-muted-foreground">Peak</span>
-          <span className="font-semibold text-foreground">{Number.isFinite(peak) ? fmt(peak) : "—"}</span>
+          <span className="text-xs text-muted-foreground">
+            All-time peak{peak?.season != null && ` (S${peak.season})`}
+          </span>
+          <span className="font-semibold text-foreground">{fmt(peak?.rating)}</span>
         </div>
       </div>
       {points.length >= 2 ? (
