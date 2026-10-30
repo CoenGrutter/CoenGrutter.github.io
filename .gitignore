@@ -44,3 +44,5 @@ yarn-error.log*
 # webstorm
 .idea
 ```
+# Rocket League data, copied in from the rl-data branch at deploy time
+public/data/

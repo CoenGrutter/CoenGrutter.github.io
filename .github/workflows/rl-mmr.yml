@@ -1,12 +1,13 @@
 name: Rocket League MMR
 
 # Triggered by /rl-sync after it uploads a snapshot to the rl-data branch; can also be run manually.
-# Data lives on the rl-data branch so it never touches main or the Pages deploy.
+# Data lives on the rl-data branch so it never touches main; the deploy workflow copies it into the site.
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: rl-mmr
@@ -37,6 +38,7 @@ jobs:
         run: node site/scripts/rl-merge.mjs data/inbox.json data/rocket-league.json
 
       - name: Commit if changed
+        id: commit
         working-directory: data
         run: |
           if [ -z "$(git status --porcelain -- rocket-league.json)" ]; then
@@ -48,3 +50,11 @@ jobs:
           git add rocket-league.json
           git commit -m "chore: update Rocket League MMR data"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # pushes made with GITHUB_TOKEN don't trigger workflows, but workflow_dispatch does
+      - name: Redeploy site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run workflow.yml --repo "$GITHUB_REPOSITORY" --ref main

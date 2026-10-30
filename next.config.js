@@ -13,6 +13,8 @@ const withPWA = WithPWA({
   register: true,
   scope: "/",
   sw: "service-worker.js",
+  // the Rocket League data changes after every sync; don't precache it
+  publicExcludes: ["!noprecache/**/*", "!data/**/*"],
 });
 
 /** @type {import('next').NextConfig} */

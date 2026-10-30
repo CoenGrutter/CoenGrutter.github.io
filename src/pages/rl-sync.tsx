@@ -23,6 +23,8 @@ function toBase64(text: string) {
 
 async function gh(token: string, path: string, init: RequestInit = {}) {
   const res = await fetch(`${API}${path}`, {
+    // GitHub sends max-age=60; a cached file sha makes the next PUT fail with 409
+    cache: "no-store",
     ...init,
     headers: {
       Accept: "application/vnd.github+json",
@@ -67,16 +69,26 @@ async function ensureBranch(token: string) {
 
 async function upload(token: string, snapshot: unknown) {
   await ensureBranch(token);
-  const current = await gh(token, `/contents/inbox.json?ref=${RL_DATA_BRANCH}`);
-  await gh(token, "/contents/inbox.json", {
-    method: "PUT",
-    body: JSON.stringify({
-      message: "chore: new Rocket League snapshot",
-      content: toBase64(JSON.stringify(snapshot)),
-      branch: RL_DATA_BRANCH,
-      ...(current?.sha ? { sha: current.sha } : {}),
-    }),
-  });
+  const content = toBase64(JSON.stringify(snapshot));
+  const put = async () => {
+    const current = await gh(token, `/contents/inbox.json?ref=${RL_DATA_BRANCH}`);
+    await gh(token, "/contents/inbox.json", {
+      method: "PUT",
+      body: JSON.stringify({
+        message: "chore: new Rocket League snapshot",
+        content,
+        branch: RL_DATA_BRANCH,
+        ...(current?.sha ? { sha: current.sha } : {}),
+      }),
+    });
+  };
+  try {
+    await put();
+  } catch (err) {
+    // the file changed between reading its sha and writing it; read again once
+    if (!(err instanceof Error && err.message.startsWith("GitHub 409"))) throw err;
+    await put();
+  }
   await gh(token, `/actions/workflows/${RL_WORKFLOW}/dispatches`, {
     method: "POST",
     body: JSON.stringify({ ref: "main" }),
@@ -128,7 +140,7 @@ export default function RlSync() {
     say(`Received snapshot: ${describe(snapshot)}.`);
     try {
       await upload(t, snapshot);
-      say("Uploaded and started the rl-mmr workflow. The site updates in about a minute.");
+      say("Uploaded and started the rl-mmr workflow. The site redeploys with the new data in a few minutes.");
     } catch (err) {
       say(`Failed: ${err instanceof Error ? err.message : String(err)}`);
     } finally {

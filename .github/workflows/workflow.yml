@@ -3,7 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main   
+      - main
+  # also started by rl-mmr.yml after new Rocket League data is merged
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -27,8 +29,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Add Rocket League data
+        run: |
+          mkdir -p public/data
+          if git fetch --depth=1 origin rl-data && git show FETCH_HEAD:rocket-league.json > public/data/rocket-league.json; then
+            echo "Added rocket-league.json from rl-data."
+          else
+            rm -f public/data/rocket-league.json
+            echo "No Rocket League data found; building without it."
+          fi
+
       - name: Build project
-        run: npm run build  
+        run: npm run build
 
       - name: Upload production-ready files
         uses: actions/upload-pages-artifact@v3

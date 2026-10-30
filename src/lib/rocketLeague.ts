@@ -2,7 +2,8 @@ export const RL_REPO = "CoenGrutter/CoenGrutter.github.io";
 /** Orphan branch holding the snapshot inbox and the merged data file. */
 export const RL_DATA_BRANCH = "rl-data";
 export const RL_WORKFLOW = "rl-mmr.yml";
-export const RL_DATA_URL = `https://raw.githubusercontent.com/${RL_REPO}/${RL_DATA_BRANCH}/rocket-league.json`;
+/** Copied into public/data by the deploy workflow (the repo is private, so raw.githubusercontent won't serve it). */
+export const RL_DATA_URL = "/data/rocket-league.json";
 export const RL_PROFILE_URL =
   "https://rocketleague.tracker.network/rocket-league/profile/epic/coen-_-";
 export const TRACKER_ORIGIN = "https://rocketleague.tracker.network";

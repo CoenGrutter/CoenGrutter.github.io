@@ -36,7 +36,8 @@ export default function RocketLeagueStats() {
   const [selected, setSelected] = useState(11);
 
   useEffect(() => {
-    fetch(RL_DATA_URL, { cache: "no-cache" })
+    // the query keeps the service worker's .json cache rule from serving a stale copy
+    fetch(`${RL_DATA_URL}?t=${Date.now()}`, { cache: "no-cache" })
       .then((r) => {
         if (r.status === 404) throw new Error("No Rocket League data synced yet.");
         if (!r.ok) throw new Error("Failed to fetch Rocket League data");
