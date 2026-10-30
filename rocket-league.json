@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-30T15:08:53.540Z",
+  "updatedAt": "2026-10-30T15:45:22.892Z",
   "player": {
     "handle": "Coen-_-",
     "platform": "epic",
     "season": 38
   },
   "lifetime": {
-    "wins": 6433,
-    "goals": 22939,
-    "mVPs": 1839,
-    "saves": 19835,
-    "assists": 4369,
-    "shots": 41690,
-    "goalShotRatio": 55.022787239146076
+    "wins": 6435,
+    "goals": 22944,
+    "mVPs": 1841,
+    "saves": 19836,
+    "assists": 4370,
+    "shots": 41700,
+    "goalShotRatio": 55.02158273381295
   },
   "playlists": {
     "0": {
@@ -94,15 +94,15 @@
       "id": 13,
       "name": "Ranked Standard 3v3",
       "season": 38,
-      "rating": 1147,
-      "percentile": 93,
+      "rating": 1169,
+      "percentile": 94,
       "tier": "Champion I",
-      "division": "Division III",
+      "division": "Division IV",
       "iconUrl": "https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-16.png",
-      "deltaUp": 14,
-      "deltaDown": 87,
-      "peakRating": 1161,
-      "matchesPlayed": 12,
+      "deltaUp": 18,
+      "deltaDown": 109,
+      "peakRating": 1169,
+      "matchesPlayed": 15,
       "streak": {
         "type": "win",
         "value": 2
@@ -1765,9 +1765,9 @@
       },
       {
         "t": "2026-10-30T00:00:00.000Z",
-        "rating": 1147,
+        "rating": 1169,
         "tier": "Champion I",
-        "division": "Division III"
+        "division": "Division IV"
       }
     ],
     "27": [
