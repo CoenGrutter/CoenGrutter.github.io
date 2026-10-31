@@ -9,9 +9,12 @@ export function cn(...inputs: ClassValue[]) {
 export function scrollTo(element: Element | null) {
   if (!element) return;
 
+  // centering a section taller than the viewport lands mid-content, so align its top instead
+  const tall = element.getBoundingClientRect().height > window.innerHeight;
+
   element.scrollIntoView({
     behavior: "smooth",
-    block: "center",
+    block: tall ? "start" : "center",
     inline: "center",
   });
 }
