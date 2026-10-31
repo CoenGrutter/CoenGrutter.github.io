@@ -31,3 +31,24 @@
     /* this fixes the overflow:hidden in Chrome/Opera */
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 }
+/* section glow; closest-side makes it fade out before the container's edges, so it never gets cut off */
+.glow {
+    @apply pointer-events-none absolute inset-x-0 -top-40 h-[21rem] sm:-top-80 sm:h-[42rem] lg:-top-60;
+    background: radial-gradient(
+        ellipse closest-side at 30% 50%,
+        hsl(var(--primary) / 0.09),
+        hsl(var(--primary) / 0.06) 30%,
+        hsl(var(--secondary) / 0.025) 65%,
+        transparent
+    );
+}
+
+/* hero glows */
+.hero-glow-top {
+    @apply pointer-events-none absolute inset-x-0 top-0 -z-10 h-[30rem] sm:h-[48rem];
+    background: radial-gradient(ellipse 34rem 22rem at 58% 35%, rgb(121 128 254 / 0.1), rgb(121 128 254 / 0.04) 50%, transparent);
+}
+.hero-glow-bottom {
+    @apply pointer-events-none absolute inset-x-0 top-[calc(100%-13rem)] -z-10 h-[21rem] overflow-hidden sm:top-[calc(100%-30rem)] sm:h-[42rem];
+    background: radial-gradient(ellipse 30rem 18rem at calc(50% + 30rem) 55%, rgb(154 112 255 / 0.1), rgb(131 138 255 / 0.04) 50%, transparent);
+}
