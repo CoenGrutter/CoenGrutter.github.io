@@ -1,3 +1,3 @@
 My portolio website. 
 
-cloned from https://github.com/wendoj/developer-portfolio, then edited to suit my situation. 
+design cloned from https://github.com/wendoj/developer-portfolio, then edited to my liking
